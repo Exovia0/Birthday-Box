@@ -190,7 +190,7 @@ function createHeart() {
   for (let i = 0; i < numHearts; i++) {
     const heart = document.createElement("img");
     heart.classList.add("floating-heart");
-    heart.src = "/assets/images/heart.png";
+    heart.src = "/Birthday-Box/assets/images/heart.png";
 
     const size = Math.random() * 20 + 20;
     const left = Math.random() * 100;
@@ -449,4 +449,5 @@ function endIntro() {
 }
 
 introVideo.addEventListener('ended', endIntro);
+
 skipBtn.addEventListener('click', endIntro);
