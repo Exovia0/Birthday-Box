@@ -60,17 +60,27 @@
   <div id="flower-container"></div>
   
   <script>
-    // Typing effect
     const quoteText = "Happy Birthday, Melly";
     const quoteElement = document.getElementById("birthdayQuote");
     let index = 0;
 
     function typeQuote() {
-    if (index < quoteText.length) {
-        quoteElement.innerHTML += quoteText.charAt(index);
+      if (index < quoteText.length) {
+        const span = document.createElement("span");
+        span.textContent = quoteText.charAt(index);
+        span.classList.add("letter");
+
+        // Randomize animation duration a little
+        const floatDuration = (1.5 + Math.random()).toFixed(2);
+        span.style.animationDuration = `${floatDuration}s, 4s`;
+
+        // Stagger the animation
+        span.style.animationDelay = `${index * 100}ms, 0s`;
+
+        quoteElement.appendChild(span);
         index++;
         setTimeout(typeQuote, 80);
-    }
+      }
     }
     typeQuote();
   </script>
@@ -79,3 +89,4 @@
 </body>
 
 </html>
+
