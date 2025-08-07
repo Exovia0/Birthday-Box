@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thoughts for Her</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="video-overlay" id="videoOverlay">
+    <video class="intro-video" id="introVideo" autoplay>
+        <source src="/assets/Vid/Happy birthday bitch.mp4" type="video/mp4">
+    </video>
+    <button class="skip-btn" id="skipBtn">Skip Intro</button>
+  </div>
+  <div id="effect-containers">
+   <div id="flower-container"></div>
+   <div id="heart-container"></div>
+   <div id="sparkle-container"></div>
+   <div id="moth-container"></div>
+  </div>
+  <!-- Menu Icon -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  
+  <!-- Sidebar Menu -->
+  <div class="side-nav" id="sideNav">
+    <!-- In ALL pages -->
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="BD-box/BDbox.html">Birthday Box</a></li>
+        <li><a href="Gallery/Gallery.html">Gallery</a></li>
+    </ul>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Birthday Quote -->
+    <div id="birthdayQuote" class="birthday-quote"></div>
+    
+    <!-- Feature Toggle Buttons -->
+    <div class="feature-controls">
+      <button id="darkModeBtn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+      <button id="heartsBtn" onclick="toggleHearts()">💖 Add Hearts</button>
+      <button id="flowersBtn" onclick="toggleFlowers()">🌸 Add Flowers</button>
+      <button id="mothsBtn" onclick="toggleMoths()">🦋 Add Moths</button>
+      <button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
+      <button id="sparklesBtn" onclick="toggleSparkles()">✨ Add Sparkles</button>
+    </div>
+    
+    <!-- Reset Button -->
+    <button class="reset-btn" onclick="resetAllFeatures()">🔄 Reset All</button>
+    
+    <!-- Navigation -->
+    
+  </div>
+  
+  <!-- Containers for effects -->
+  <div id="flower-container"></div>
+  
+  <script>
+    // Typing effect
+    const quoteText = "Happy Birthday, Melly";
+    const quoteElement = document.getElementById("birthdayQuote");
+    let index = 0;
+
+    function typeQuote() {
+    if (index < quoteText.length) {
+        quoteElement.innerHTML += quoteText.charAt(index);
+        index++;
+        setTimeout(typeQuote, 80);
+    }
+    }
+    typeQuote();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

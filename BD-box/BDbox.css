@@ -1,0 +1,206 @@
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: #ffe9e9;
+  display: flex;
+}
+
+/* Menu Icon */
+.menu-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Sidebar */
+.side-nav {
+  position: fixed;
+  left: -200px;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #ff5a73;
+  padding-top: 60px;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-nav ul li a {
+  display: block;
+  padding: 12px 20px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.side-nav ul li a:hover {
+  background-color: #e792bb;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  max-height: 100vh;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Button */
+.read-btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #ff5a73;
+  border: none;
+  cursor: pointer;
+  
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+#quote-ring-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+.quote-box {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  transition: transform 0.5s ease;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+
+}
+
+.flip-container {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  perspective: 800px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-container:hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.back {
+  background: #fff;
+  transform: rotateY(180deg);
+  padding: 10px;
+}
+/* Add these to your existing CSS */
+
+/* Overlay for sidebar */
+#navOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+  display: none;
+}
+
+/* Better button styling */
+.read-btn {
+  transition: all 0.3s ease;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.read-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 90, 115, 0.4);
+}
+
+/* Responsive quotes */
+@media (max-width: 768px) {
+  .flip-container {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  
+  .front, .back {
+    font-size: 12px !important;
+  }
+  
+  .main-content {
+    padding: 60px 20px !important;
+  }
+}
+
+/* Animation for button click */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.read-btn:active {
+  animation: pulse 0.3s ease;
+}

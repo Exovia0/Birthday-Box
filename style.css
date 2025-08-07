@@ -1,0 +1,416 @@
+/* Reset & base */
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffdee5;
+  font-family: 'Quicksand', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.5s ease;
+}
+
+/* Menu Icon */
+.menu-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* Sidebar */
+.side-nav {
+  position: fixed;
+  left: -200px;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #ffe0e9;
+  padding-top: 60px;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-nav ul li a {
+  display: block;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.side-nav ul li a:hover {
+  background-color: #ffd6dd;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 60px 20px 40px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Birthday Quote */
+.birthday-quote {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 3em;
+  color: #ff69b4;
+  text-shadow: 2px 2px #ffe4e9;
+  margin-bottom: 40px;
+  min-height: 1.2em;
+  animation: fadeIn 1s ease-in;
+}
+
+/* Feature Controls */
+.feature-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.feature-controls button {
+  padding: 15px 25px;
+  font-size: 1.1em;
+  background-color: #ffb6c1;
+  color: #333;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(255,105,180,0.2);
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-controls button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255,105,180,0.3);
+}
+
+.feature-controls button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(255,105,180,0.2);
+}
+
+/* Button ripple effect */
+.feature-controls button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: width 0.3s, height 0.3s, top 0.3s, left 0.3s;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.feature-controls button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Reset and Navigation Buttons */
+.reset-btn, .nav-btn {
+  padding: 12px 30px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  margin: 10px;
+  font-family: inherit;
+}
+
+.reset-btn {
+  background-color: #ff6b9d;
+  color: white;
+  box-shadow: 0 4px 8px rgba(255,107,157,0.3);
+}
+
+.reset-btn:hover {
+  background-color: #ff5582;
+  transform: translateY(-2px);
+}
+
+.nav-btn {
+  background-color: #ffd700;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(255,215,0,0.3);
+}
+
+.nav-btn:hover {
+  background-color: #ffed4a;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Floating Effects */
+.floating-heart {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: floatUp linear forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Flower Container */
+#flower-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.falling-flower {
+  position: absolute;
+  top: -50px;
+  pointer-events: none;
+  animation: fallFeather linear forwards;
+  opacity: 0.9;
+}
+
+@keyframes fallFeather {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Moths */
+.moths_movement {
+  position: absolute;
+  z-index: 1;
+  animation-name: floatToCorner;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+@keyframes floatToCorner {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+    rotate: 50deg;
+  }
+  100% {
+    transform: translate(-20vw, -100vh); /*slide direction*/
+    opacity: 0;
+  }
+}
+
+/* Sparkles */
+.sparkle {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  animation: sparkleFloat ease-out forwards;
+}
+
+@keyframes sparkleFloat {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(360deg) translateY(-50px);
+  }
+}
+
+/* Dark mode adjustments */
+body.dark-mode {
+  background: #000000;
+  color: #fff;
+}
+
+body.dark-mode .menu-icon {
+  color: #fff;
+}
+
+body.dark-mode .side-nav {
+  background-color: #222;
+}
+
+body.dark-mode .side-nav ul li a {
+  color: #fff;
+}
+
+body.dark-mode .side-nav ul li a:hover {
+  background-color: #444;
+}
+
+body.dark-mode .birthday-quote {
+  color: #ff69b4;
+  text-shadow: 2px 2px rgba(0,0,0,0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .birthday-quote {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  
+  .feature-controls {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 10px;
+  }
+  
+  .feature-controls button {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+  
+  .main-content {
+    padding: 80px 15px 40px;
+  }
+  
+  .reset-btn, .nav-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .birthday-quote {
+    font-size: 1.5em;
+  }
+  
+  .feature-controls button {
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  box-sizing: border-box;
+}
+
+button {
+  outline: none;
+}
+
+button:focus {
+  box-shadow: 0 0 0 3px rgba(255,105,180,0.3);
+}
+
+/* Overlay Animation */
+#navOverlay {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Ensure sidebar has proper stacking */
+.side-nav {
+  z-index: 999 !important;
+}
+
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.video-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.skip-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+}

@@ -1,0 +1,205 @@
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #ffe9e9;
+      display: flex;
+    }
+
+    /* Menu Icon */
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    /* Sidebar */
+    .side-nav {
+      position: fixed;
+      left: -200px;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      background-color: #ffe0e9;
+      padding-top: 60px;
+      transition: 0.3s ease;
+      z-index: 999;
+      backdrop-filter: blur(5px);
+      background-color: rgba(255, 224, 233, 0.9);
+    }
+
+    .side-nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .side-nav ul li a {
+      display: block;
+      padding: 12px 20px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .side-nav ul li a:hover {
+      background-color: #ffd6dd;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 80px 40px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .gallery-title {
+      font-size: 3.5em;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: #ff7a7a;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Modal Dialog */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content {
+      position: relative;
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 0;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 15px;
+      overflow: hidden;
+      animation: slideIn 0.3s ease;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .modal-text {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .modal-text h3 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+    }
+
+    .modal-text p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 1.1em;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: #fff;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 2001;
+      background: rgba(0,0,0,0.5);
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .close:hover {
+      background: rgba(0,0,0,0.7);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 80px 20px 40px;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+      }
+      
+      .modal-content {
+        width: 95%;
+        margin: 10% auto;
+      }
+      
+      .modal-image {
+        height: 250px;
+      }
+      
+      .modal-text {
+        padding: 20px;
+      }
+    }
