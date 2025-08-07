@@ -413,4 +413,28 @@ button:focus {
     padding: 10px 20px;
     border-radius: 25px;
     cursor: pointer;
+
+}
+
+
+.letter {
+  display: inline-block;
+  animation: floatDance 2s infinite ease-in-out, colorShift 4s infinite linear;
+  position: relative;
+}
+
+/* Floating / Dancing */
+@keyframes floatDance {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-5px) rotate(-3deg); }
+  50%  { transform: translateY(0); }
+  75%  { transform: translateY(5px) rotate(3deg); }
+  100% { transform: translateY(0); }
+}
+
+/* Color Shifting */
+@keyframes colorShift {
+  0%   { color: #ca57a8; }   /* Pink */
+  50%  { color: #ffacdc; }   /* Aqua */
+  100% { color: #e03fb0; }   /* Back to Pink */
 }
