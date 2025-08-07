@@ -413,9 +413,7 @@ button:focus {
     padding: 10px 20px;
     border-radius: 25px;
     cursor: pointer;
-
 }
-
 
 .letter {
   display: inline-block;

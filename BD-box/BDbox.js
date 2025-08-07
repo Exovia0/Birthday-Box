@@ -72,7 +72,7 @@ const colors = [
 
 const imageSources = [
   "../assets/images/cake.png",
-  "../assets/images/Sun.png", 
+  "../assets/images/sun.png", 
   "../assets/images/Leo.png",
   "../assets/images/Clover.png",
   "../assets/images/smile.png",
@@ -128,5 +128,4 @@ document.addEventListener('click', (e) => {
   if (!e.target.closest('.side-nav') && !e.target.closest('.menu-icon')) {
     document.getElementById("sideNav").style.left = "-200px";
   }
-
 });
