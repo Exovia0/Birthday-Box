@@ -129,7 +129,7 @@ function toggleMoths() {
 }
 
 
-const audio = new Audio('/assets/sound/Queen of Fire ext v7.mp3'); 
+const audio = new Audio('/Birthday-Box/assets/sound/Queen of Fire ext v7.mp3'); 
 audio.loop = true; 
 
 function toggleMusic() {
@@ -218,7 +218,7 @@ function generateFlower() {
   if (!featureStates.flowers) return;
   
   const flower = document.createElement("img");
-  flower.src = "/assets/images/flower.png";
+  flower.src = "/Birthday-Box/assets/images/flower.png";
   flower.classList.add("falling-flower");
 
   flower.style.left = Math.random() * 100 + "vw";
@@ -243,7 +243,7 @@ function generateSingleMoth() {
   if (!featureStates.moths) return;
   
   const marsh = document.createElement("img");
-  marsh.src = "/assets/images/moth.png";
+  marsh.src = "/Birthday-Box/assets/images/moth.png";
   marsh.classList.add("moths_movement");
 
   const size_marsh = Math.random() * 140 + 20;
@@ -449,5 +449,4 @@ function endIntro() {
 }
 
 introVideo.addEventListener('ended', endIntro);
-
 skipBtn.addEventListener('click', endIntro);
